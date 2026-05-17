@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Service Inquiry</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f6f4fb;
+    padding:40px;
+}
+
+.container{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+h1{
+    color:#5a2d82;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.service-name{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:25px;
+    color:#333;
+    text-align:center;
+}
+
+.details{
+    margin-bottom:30px;
+    color:#666;
+    line-height:1.7;
+    text-align:center;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#5a2d82;
+    box-shadow:0 0 8px rgba(90,45,130,0.2);
+}
+
+textarea{
+    height:150px;
+    resize:none;
+}
+
+/* FILE UPLOAD */
+
+.file-upload{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.file-upload label{
+    font-weight:500;
+    color:#555;
+}
+
+.file-upload input{
+    padding:12px;
+    background:#fff;
+}
+
+/* BUTTON */
+
+button{
+    background:#5a2d82;
+    color:white;
+    border:none;
+    padding:15px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:600;
+}
+
+button:hover{
+    background:#6c35a0;
+    transform:translateY(-2px);
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+    body{
+        padding:20px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Service Inquiry Form</h1>
+
+    <div class="service-name" id="serviceTitle"></div>
+
+    <div class="details">
+        Please send your project details, inquiry,
+        technical requirements, and attachments.
+    </div>
+
+    <form enctype="multipart/form-data">
+
+        <!-- NAME -->
+
+        <input type="text" placeholder="Your Name" required>
+
+        <!-- EMAIL -->
+
+        <input type="email" placeholder="Your Email Address" required>
+
+        <!-- MOBILE -->
+
+        <input type="tel" placeholder="Mobile Number" required>
+
+        <!-- COMPANY -->
+
+        <input type="text" placeholder="Company Name">
+
+        <!-- SERVICE -->
+
+        <input type="text" id="serviceInput" readonly>
+
+        <!-- PROJECT TYPE -->
+
+        <select required>
+
+            <option value="">Select Project Type</option>
+
+            <option>3D CAD Design</option>
+
+            <option>2D CAD Drafting</option>
+
+            <option>Sheet Metal Design</option>
+
+            <option>CAD Conversion</option>
+
+            <option>Reverse Engineering</option>
+
+            <option>Conceptual Design</option>
+
+        </select>
+
+        <!-- REQUIREMENT -->
+
+        <textarea placeholder="Enter Project Requirement / Inquiry"></textarea>
+
+        <!-- FILE ATTACHMENT -->
+
+        <div class="file-upload">
+
+            <label for="attachment">
+                Attach Drawing / CAD File / PDF / Image
+            </label>
+
+            <input 
+                type="file" 
+                id="attachment"
+                multiple
+                accept=".jpg,.jpeg,.png,.pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.stl"
+            >
+
+        </div>
+
+        <!-- SUBMIT -->
+
+        <button type="submit">
+            Send Inquiry
+        </button>
+
+    </form>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const service = params.get("service");
+
+document.getElementById("serviceTitle").innerText = service;
+
+document.getElementById("serviceInput").value = service;
+
+</script>
+
+</body>
+</html>

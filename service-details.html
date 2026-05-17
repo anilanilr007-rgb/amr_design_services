@@ -151,103 +151,7 @@ button:hover{
         technical requirements, and attachments.
     </div>
 
-  <form action="https://formsubmit.co/anilanilr007@gmail.com" method="POST" enctype="multipart/form-data">
-
-    <!-- Disable Captcha -->
-    <input type="hidden" name="_captcha" value="false">
-
-    <!-- Redirect After Submit -->
-    <input type="hidden" name="_next" value="https://anilanilr007-rgb.github.io/amrds/">
-
-    <!-- NAME -->
-
-    <input 
-        type="text" 
-        name="name"
-        placeholder="Your Name" 
-        required
-    >
-
-    <!-- EMAIL -->
-
-    <input 
-        type="email" 
-        name="email"
-        placeholder="Your Email Address" 
-        required
-    >
-
-    <!-- MOBILE -->
-
-    <input 
-        type="tel" 
-        name="mobile"
-        placeholder="Mobile Number" 
-        required
-    >
-
-    <!-- COMPANY -->
-
-    <input 
-        type="text" 
-        name="company"
-        placeholder="Company Name"
-    >
-
-    <!-- SERVICE -->
-
-    <input 
-        type="text" 
-        name="service"
-        id="serviceInput" 
-        readonly
-    >
-
-    <!-- PROJECT TYPE -->
-
-    <select name="project_type" required>
-
-        <option value="">Select Project Type</option>
-
-        <option>3D CAD Design</option>
-
-        <option>2D CAD Drafting</option>
-
-        <option>Sheet Metal Design</option>
-
-        <option>CAD Conversion</option>
-
-        <option>Reverse Engineering</option>
-
-        <option>Conceptual Design</option>
-
-    </select>
-
-    <!-- REQUIREMENT -->
-
-    <textarea 
-        name="requirement"
-        placeholder="Enter Project Requirement / Inquiry">
-    </textarea>
-
-    <!-- FILE ATTACHMENT -->
-
-    <div class="file-upload">
-
-        <label for="attachment">
-            Attach Drawing / CAD File / PDF / Image
-        </label>
-
-        <input 
-            type="file" 
-            name="attachment"
-            id="attachment"
-            multiple
-            accept=".jpg,.jpeg,.png,.pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.stl"
-        >
-
-    </div>
-<form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+  <form action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
 
     <!-- Web3Forms Access Key -->
     <input type="hidden" name="access_key" value="86dfbb6e-3823-40eb-876c-b65dba810a64">
@@ -319,22 +223,12 @@ button:hover{
         placeholder="Enter Project Requirement / Inquiry">
     </textarea>
 
-    <!-- FILE ATTACHMENT -->
-    <div class="file-upload">
-
-        <label for="attachment">
-            Attach Drawing / CAD File / PDF / Image
-        </label>
-
-        <input 
-            type="file" 
-            name="attachment"
-            id="attachment"
-            multiple
-            accept=".jpg,.jpeg,.png,.pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.stl"
-        >
-
-    </div>
+    <!-- FILE LINK -->
+    <input 
+        type="text"
+        name="file_link"
+        placeholder="Paste Google Drive Link for CAD Files"
+    >
 
     <!-- SUBMIT -->
     <button type="submit">

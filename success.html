@@ -23,6 +23,8 @@ body{
     padding:40px;
 }
 
+/* MAIN FORM */
+
 .container{
     max-width:750px;
     margin:auto;
@@ -83,6 +85,8 @@ textarea{
     resize:none;
 }
 
+/* FILE UPLOAD */
+
 .file-upload{
     display:flex;
     flex-direction:column;
@@ -93,6 +97,8 @@ textarea{
     font-weight:500;
     color:#555;
 }
+
+/* BUTTON */
 
 button{
     background:#5a2d82;
@@ -111,7 +117,7 @@ button:hover{
     transform:translateY(-2px);
 }
 
-/* POPUP */
+/* SUCCESS POPUP */
 
 .success-popup{
     position:fixed;
@@ -119,22 +125,23 @@ button:hover{
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.5);
+    background:rgba(0,0,0,0.6);
     display:none;
     justify-content:center;
     align-items:center;
-    z-index:999;
+    z-index:9999;
     padding:20px;
 }
 
 .popup-box{
     background:white;
     width:100%;
-    max-width:500px;
-    padding:40px 30px;
+    max-width:520px;
+    padding:45px 35px;
     border-radius:20px;
     text-align:center;
     animation:popupShow 0.4s ease;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
 }
 
 .success-icon{
@@ -150,44 +157,31 @@ button:hover{
 .popup-box p{
     color:#666;
     line-height:1.8;
-    margin-bottom:25px;
+    margin-bottom:30px;
+    font-size:16px;
 }
 
-.popup-buttons{
-    display:flex;
-    gap:15px;
-    justify-content:center;
-    flex-wrap:wrap;
-}
-
-.explore-btn,
-.close-btn{
-    padding:14px 25px;
-    border:none;
-    border-radius:10px;
-    font-size:15px;
-    cursor:pointer;
-    font-weight:600;
-    transition:0.3s;
-}
+/* EXPLORE BUTTON */
 
 .explore-btn{
+    width:100%;
     background:#5a2d82;
     color:white;
+    border:none;
+    padding:15px;
+    border-radius:10px;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+    font-weight:600;
 }
 
 .explore-btn:hover{
     background:#6c35a0;
+    transform:translateY(-2px);
 }
 
-.close-btn{
-    background:#eaeaea;
-    color:#333;
-}
-
-.close-btn:hover{
-    background:#d8d8d8;
-}
+/* POPUP ANIMATION */
 
 @keyframes popupShow{
 
@@ -202,6 +196,8 @@ button:hover{
     }
 
 }
+
+/* RESPONSIVE */
 
 @media(max-width:768px){
 
@@ -221,107 +217,129 @@ button:hover{
 
 <body>
 
-<div class="container">
+<!-- MAIN FORM -->
+
+<div class="container" id="mainContainer">
 
     <h1>Service Inquiry Form</h1>
 
     <div class="service-name" id="serviceTitle"></div>
 
     <div class="details">
-        Please send your project details, inquiry,
+        Please send your project details,
         technical requirements, and attachments.
     </div>
 
-<form 
-    id="inquiryForm"
-    enctype="multipart/form-data"
->
-
-    <input 
-        type="hidden" 
-        name="access_key" 
-        value="86dfbb6e-3823-40eb-876c-b65dba810a64"
+    <form 
+        id="inquiryForm"
+        enctype="multipart/form-data"
     >
 
-    <input 
-        type="text" 
-        name="name"
-        placeholder="Your Name" 
-        required
-    >
-
-    <input 
-        type="email" 
-        name="email"
-        placeholder="Your Email Address" 
-        required
-    >
-
-    <input 
-        type="tel" 
-        name="mobile"
-        placeholder="Mobile Number" 
-        required
-    >
-
-    <input 
-        type="text" 
-        name="company"
-        placeholder="Company Name"
-    >
-
-    <input 
-        type="text" 
-        name="service"
-        id="serviceInput" 
-        readonly
-    >
-
-    <select name="project_type" required>
-
-        <option value="">
-            Select Project Type
-        </option>
-
-        <option>3D CAD Design</option>
-
-        <option>2D CAD Drafting</option>
-
-        <option>Sheet Metal Design</option>
-
-        <option>CAD Conversion</option>
-
-        <option>Reverse Engineering</option>
-
-        <option>Conceptual Design</option>
-
-    </select>
-
-    <textarea 
-        name="requirement"
-        placeholder="Enter Project Requirement / Inquiry">
-    </textarea>
-
-    <div class="file-upload">
-
-        <label for="attachment">
-            Attach CAD File
-        </label>
+        <!-- WEB3FORMS ACCESS KEY -->
 
         <input 
-            type="file"
-            id="attachment"
-            name="attachment"
-            accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.rar,.jpg,.png"
+            type="hidden" 
+            name="access_key" 
+            value="86dfbb6e-3823-40eb-876c-b65dba810a64"
         >
 
-    </div>
+        <!-- NAME -->
 
-    <button type="submit">
-        Send Inquiry
-    </button>
+        <input 
+            type="text" 
+            name="name"
+            placeholder="Your Name" 
+            required
+        >
 
-</form>
+        <!-- EMAIL -->
+
+        <input 
+            type="email" 
+            name="email"
+            placeholder="Your Email Address" 
+            required
+        >
+
+        <!-- MOBILE -->
+
+        <input 
+            type="tel" 
+            name="mobile"
+            placeholder="Mobile Number" 
+            required
+        >
+
+        <!-- COMPANY -->
+
+        <input 
+            type="text" 
+            name="company"
+            placeholder="Company Name"
+        >
+
+        <!-- SERVICE -->
+
+        <input 
+            type="text" 
+            name="service"
+            id="serviceInput" 
+            readonly
+        >
+
+        <!-- PROJECT TYPE -->
+
+        <select name="project_type" required>
+
+            <option value="">
+                Select Project Type
+            </option>
+
+            <option>3D CAD Design</option>
+
+            <option>2D CAD Drafting</option>
+
+            <option>Sheet Metal Design</option>
+
+            <option>CAD Conversion</option>
+
+            <option>Reverse Engineering</option>
+
+            <option>Conceptual Design</option>
+
+        </select>
+
+        <!-- REQUIREMENT -->
+
+        <textarea 
+            name="requirement"
+            placeholder="Enter Project Requirement / Inquiry">
+        </textarea>
+
+        <!-- FILE ATTACHMENT -->
+
+        <div class="file-upload">
+
+            <label for="attachment">
+                Attach CAD File
+            </label>
+
+            <input 
+                type="file"
+                id="attachment"
+                name="attachment"
+                accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.rar,.jpg,.png"
+            >
+
+        </div>
+
+        <!-- SUBMIT BUTTON -->
+
+        <button type="submit">
+            Send Inquiry
+        </button>
+
+    </form>
 
 </div>
 
@@ -333,31 +351,20 @@ button:hover{
 
         <div class="success-icon">✅</div>
 
-        <h2>Application Submitted Successfully</h2>
+        <h2>Inquiry Submitted Successfully</h2>
 
         <p>
-            Thank you for your application.
-            Our team will review your inquiry
-            and get back to you soon.
+            Thank you for contacting AMR Designs Services.
+            Our team will review your inquiry and
+            get back to you soon.
         </p>
 
-        <div class="popup-buttons">
-
-            <button 
-                class="explore-btn"
-                onclick="window.location.href='index.html'"
-            >
-                Continue to Explore
-            </button>
-
-            <button 
-                class="close-btn"
-                onclick="closePopup()"
-            >
-                Close
-            </button>
-
-        </div>
+        <button 
+            class="explore-btn"
+            onclick="window.location.href='index.html'"
+        >
+            Continue to Explore AMR Designs Services
+        </button>
 
     </div>
 
@@ -365,13 +372,23 @@ button:hover{
 
 <script>
 
+/* GET SERVICE NAME FROM URL */
+
 const params = new URLSearchParams(window.location.search);
 
 const service = params.get("service");
 
-document.getElementById("serviceTitle").innerText = service || "Service Inquiry";
+/* DISPLAY SERVICE NAME */
 
-document.getElementById("serviceInput").value = service || "General Inquiry";
+document.getElementById(
+    "serviceTitle"
+).innerText = service || "Service Inquiry";
+
+document.getElementById(
+    "serviceInput"
+).value = service || "General Inquiry";
+
+/* FORM SUBMIT */
 
 const form = document.getElementById("inquiryForm");
 
@@ -395,7 +412,13 @@ form.addEventListener("submit", async function(e){
 
         if(result.success){
 
-            form.style.display = "none";
+            /* CLOSE INQUIRY PAGE */
+
+            document.getElementById(
+                "mainContainer"
+            ).style.display = "none";
+
+            /* SHOW SUCCESS POPUP */
 
             document.getElementById(
                 "successPopup"
@@ -404,28 +427,22 @@ form.addEventListener("submit", async function(e){
         }
         else{
 
-            alert("Submission failed. Please try again.");
+            alert(
+                "Submission failed. Please try again."
+            );
 
         }
 
     }
     catch(error){
 
-        alert("Something went wrong. Please try again.");
+        alert(
+            "Something went wrong. Please try again."
+        );
 
     }
 
 });
-
-function closePopup(){
-
-    document.getElementById(
-        "successPopup"
-    ).style.display = "none";
-
-    window.location.href = "index.html";
-
-}
 
 </script>
 

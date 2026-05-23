@@ -5,7 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Application Submitted</title>
+<title>Service Inquiry</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -20,46 +20,85 @@
 body{
     font-family:'Poppins',sans-serif;
     background:#f6f4fb;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    padding:20px;
+    padding:40px;
 }
 
 .container{
-    max-width:650px;
-    width:100%;
+    max-width:750px;
+    margin:auto;
     background:white;
-    padding:50px 40px;
+    padding:40px;
     border-radius:20px;
-    text-align:center;
     box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
-
-.success-icon{
-    font-size:70px;
-    margin-bottom:20px;
 }
 
 h1{
     color:#5a2d82;
-    margin-bottom:15px;
+    margin-bottom:20px;
+    text-align:center;
 }
 
-p{
+.service-name{
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:25px;
+    color:#333;
+    text-align:center;
+}
+
+.details{
+    margin-bottom:30px;
     color:#666;
-    line-height:1.8;
-    font-size:17px;
-    margin-bottom:15px;
+    line-height:1.7;
+    text-align:center;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+    transition:0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:#5a2d82;
+    box-shadow:0 0 8px rgba(90,45,130,0.2);
+}
+
+textarea{
+    height:150px;
+    resize:none;
+}
+
+.file-upload{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.file-upload label{
+    font-weight:500;
+    color:#555;
 }
 
 button{
-    margin-top:20px;
     background:#5a2d82;
     color:white;
     border:none;
-    padding:14px 30px;
+    padding:15px;
     border-radius:10px;
     font-size:16px;
     cursor:pointer;
@@ -72,6 +111,110 @@ button:hover{
     transform:translateY(-2px);
 }
 
+/* POPUP */
+
+.success-popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+    padding:20px;
+}
+
+.popup-box{
+    background:white;
+    width:100%;
+    max-width:500px;
+    padding:40px 30px;
+    border-radius:20px;
+    text-align:center;
+    animation:popupShow 0.4s ease;
+}
+
+.success-icon{
+    font-size:70px;
+    margin-bottom:20px;
+}
+
+.popup-box h2{
+    color:#5a2d82;
+    margin-bottom:15px;
+}
+
+.popup-box p{
+    color:#666;
+    line-height:1.8;
+    margin-bottom:25px;
+}
+
+.popup-buttons{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.explore-btn,
+.close-btn{
+    padding:14px 25px;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.explore-btn{
+    background:#5a2d82;
+    color:white;
+}
+
+.explore-btn:hover{
+    background:#6c35a0;
+}
+
+.close-btn{
+    background:#eaeaea;
+    color:#333;
+}
+
+.close-btn:hover{
+    background:#d8d8d8;
+}
+
+@keyframes popupShow{
+
+    from{
+        transform:scale(0.8);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+
+}
+
+@media(max-width:768px){
+
+    body{
+        padding:20px;
+    }
+
+    .container{
+        padding:25px;
+    }
+
+}
+
 </style>
 
 </head>
@@ -80,29 +223,211 @@ button:hover{
 
 <div class="container">
 
-    <div class="success-icon">✅</div>
+    <h1>Service Inquiry Form</h1>
 
-    <h1>Application Submitted Successfully</h1>
+    <div class="service-name" id="serviceTitle"></div>
 
-    <p>
-        Thank you for contacting us.
-    </p>
+    <div class="details">
+        Please send your project details, inquiry,
+        technical requirements, and attachments.
+    </div>
 
-    <p>
-        Your inquiry has been submitted successfully.
-        Our team will review your requirements and
-        get back to you shortly.
-    </p>
+<form 
+    id="inquiryForm"
+    enctype="multipart/form-data"
+>
 
-    <p>
-        Please reach out again for more inquiries or future projects.
-    </p>
+    <input 
+        type="hidden" 
+        name="access_key" 
+        value="86dfbb6e-3823-40eb-876c-b65dba810a64"
+    >
 
-    <button onclick="window.location.href='index.html'">
-        Back to Home
+    <input 
+        type="text" 
+        name="name"
+        placeholder="Your Name" 
+        required
+    >
+
+    <input 
+        type="email" 
+        name="email"
+        placeholder="Your Email Address" 
+        required
+    >
+
+    <input 
+        type="tel" 
+        name="mobile"
+        placeholder="Mobile Number" 
+        required
+    >
+
+    <input 
+        type="text" 
+        name="company"
+        placeholder="Company Name"
+    >
+
+    <input 
+        type="text" 
+        name="service"
+        id="serviceInput" 
+        readonly
+    >
+
+    <select name="project_type" required>
+
+        <option value="">
+            Select Project Type
+        </option>
+
+        <option>3D CAD Design</option>
+
+        <option>2D CAD Drafting</option>
+
+        <option>Sheet Metal Design</option>
+
+        <option>CAD Conversion</option>
+
+        <option>Reverse Engineering</option>
+
+        <option>Conceptual Design</option>
+
+    </select>
+
+    <textarea 
+        name="requirement"
+        placeholder="Enter Project Requirement / Inquiry">
+    </textarea>
+
+    <div class="file-upload">
+
+        <label for="attachment">
+            Attach CAD File
+        </label>
+
+        <input 
+            type="file"
+            id="attachment"
+            name="attachment"
+            accept=".pdf,.dwg,.dxf,.step,.stp,.iges,.igs,.zip,.rar,.jpg,.png"
+        >
+
+    </div>
+
+    <button type="submit">
+        Send Inquiry
     </button>
 
+</form>
+
 </div>
+
+<!-- SUCCESS POPUP -->
+
+<div class="success-popup" id="successPopup">
+
+    <div class="popup-box">
+
+        <div class="success-icon">✅</div>
+
+        <h2>Application Submitted Successfully</h2>
+
+        <p>
+            Thank you for your application.
+            Our team will review your inquiry
+            and get back to you soon.
+        </p>
+
+        <div class="popup-buttons">
+
+            <button 
+                class="explore-btn"
+                onclick="window.location.href='index.html'"
+            >
+                Continue to Explore
+            </button>
+
+            <button 
+                class="close-btn"
+                onclick="closePopup()"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const service = params.get("service");
+
+document.getElementById("serviceTitle").innerText = service || "Service Inquiry";
+
+document.getElementById("serviceInput").value = service || "General Inquiry";
+
+const form = document.getElementById("inquiryForm");
+
+form.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    try{
+
+        const response = await fetch(
+            "https://api.web3forms.com/submit",
+            {
+                method:"POST",
+                body:formData
+            }
+        );
+
+        const result = await response.json();
+
+        if(result.success){
+
+            form.style.display = "none";
+
+            document.getElementById(
+                "successPopup"
+            ).style.display = "flex";
+
+        }
+        else{
+
+            alert("Submission failed. Please try again.");
+
+        }
+
+    }
+    catch(error){
+
+        alert("Something went wrong. Please try again.");
+
+    }
+
+});
+
+function closePopup(){
+
+    document.getElementById(
+        "successPopup"
+    ).style.display = "none";
+
+    window.location.href = "index.html";
+
+}
+
+</script>
 
 </body>
 </html>
